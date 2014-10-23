@@ -1,0 +1,20 @@
+<p>
+  <%-#This made the title a little bigger, eliminating the need for the 'Title:' -%>
+  <h2>
+    <%-#Had to change from @post to post because in welcome file we pass in the variable -%>
+    <%= link_to post.title, post %>
+  </h2>
+</p>
+
+<p>
+  <%-#This made the line into paragraphed form -%>
+  <%= simple_format post.content %> 
+</p>
+
+<%-#This changed the typography to a light gray -%>
+<p class="text-muted">
+  <small>
+    <%-#created_at was found in schema.rb file and to_formatted_s is a datetime formatter -%>  
+    Posted on <%= post.created_at.to_formatted_s(:long) %>
+  </small>
+</p>
