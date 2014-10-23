@@ -1,5 +1,7 @@
+<%= stylesheet_link_tag "application.css" %>
 <p>
   <%-#This made the title a little bigger, eliminating the need for the 'Title:' -%>
+  
   <h2>
     <%-#Had to change from @post to post because in welcome file we pass in the variable -%>
     <%= link_to post.title, post %>
@@ -7,8 +9,14 @@
 </p>
 
 <p>
-  <%-#This made the line into paragraphed form -%>
-  <%= simple_format post.content %> 
+  
+  <% if post.kind == 'image' %>
+    <%= image_tag post.content, style: "width: 100%" %>
+  <% else %>
+    <%-#This made the line into paragraphed form -%>
+    <%= simple_format post.content %> 
+  <% end %>
+  
 </p>
 
 <%-#This changed the typography to a light gray -%>
